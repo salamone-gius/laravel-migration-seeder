@@ -28,10 +28,10 @@ class CreateTrainsTable extends Migration
             $table->date('arrival_date');
             $table->time('departure_time');
             $table->time('arrival_time');
-            $table->string('train_code', 10);
+            $table->string('train_code', 6);
             $table->unsignedTinyInteger('wagons_number');
-            $table->boolean('is_in_time')->default(true);
-            $table->boolean('is_deleted')->default(false);
+            $table->boolean('is_in_time');
+            $table->boolean('is_deleted');
             $table->timestamps();
         });
     }
