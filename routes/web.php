@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// richiamo nella rotta il controller e il suo metodo
+Route::get('/', 'TrainController@index');

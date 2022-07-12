@@ -54,6 +54,9 @@ class TrainsTableSeeder extends Seeder
             // con comando terminale 'php artisan db:seed --class=NomeTabella(in Pascal Case)TableSeeder' lancio il seeder appena creato che popolerà la mia tabella
 
             // con comando terminale 'php artisan migrate:refresh' cancello e rilancio tutte le migration per aggiornare i dati. Poi bisogna rilanciare il seed
+
+            // con comando terminale 'php artisan make:controller NomeTabellaAlSingolareController' creo il controller che andrà a gestire le view
+
         }
     }
 }
