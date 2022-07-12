@@ -22,33 +22,38 @@ class TrainsTableSeeder extends Seeder
         // creo un array con le compagnie dei treni
         $companies = ['Italo', 'TreNord', 'Trenitalia'];
 
-        // creo una variabile in cui salverò la Classe del Modello Train
-        $newTrain = new Train();
-
-        // da qui in poi metteremo tutte le colonne
-
-        // inserimento manuale
-        $newTrain->type= 'intercity';
-        $newTrain->wagons_number = rand(2, 100);
-
-        // inserimento con opzioni in array
-        $newTrain->company =$companies[rand(0, count($companies) - 1)];
+        // effettuo un ciclo per moltiplicare le righe della mia tabella
+        for ($i = 0; $i < 200; $i++) {
         
-        // da libreria FakerPHP
-        $newTrain->departure_station = $faker->city();
-        $newTrain->arrival_station = $faker->city();
-        $newTrain->departure_date = $faker->dateTimeThisMonth();
-        $newTrain->arrival_date = $faker->dateTimeThisMonth();
-        $newTrain->departure_time = $faker->time();
-        $newTrain->arrival_time = $faker->time();
-        $newTrain->train_code = $faker->bothify('?-####');
-        $newTrain->is_in_time = $faker->boolean();
-        $newTrain->is_deleted = $faker->boolean();
+            // creo una variabile in cui salverò la Classe del Modello Train (oggetto Train)
+            $newTrain = new Train();
 
-        //prima di uscire dal metodo salvo il nuovo treno attraverso il metodo 'save()'
-        $newTrain->save();
+            // da qui in poi metteremo tutte le colonne
 
-        // con comando terminale 'php artisan db:seed --class=NomeTabella(in Pascal Case)TableSeeder' lancio il seeder appena creato che popolerà la mia tabella
+            // inserimento manuale
+            $newTrain->type= 'intercity';
+            $newTrain->wagons_number = rand(2, 100);
 
+            // inserimento con opzioni in array
+            $newTrain->company =$companies[rand(0, count($companies) - 1)];
+            
+            // da libreria FakerPHP
+            $newTrain->departure_station = $faker->city();
+            $newTrain->arrival_station = $faker->city();
+            $newTrain->departure_date = $faker->dateTimeThisMonth('+ 60 days');
+            $newTrain->arrival_date = $faker->dateTimeThisMonth('+ 60 days');
+            $newTrain->departure_time = $faker->time();
+            $newTrain->arrival_time = $faker->time();
+            $newTrain->train_code = $faker->bothify('?-####');
+            $newTrain->is_in_time = $faker->boolean();
+            $newTrain->is_deleted = $faker->boolean();
+
+            //prima di uscire dal metodo salvo il nuovo treno attraverso il metodo 'save()'
+            $newTrain->save();
+
+            // con comando terminale 'php artisan db:seed --class=NomeTabella(in Pascal Case)TableSeeder' lancio il seeder appena creato che popolerà la mia tabella
+
+            // con comando terminale 'php artisan migrate:refresh' cancello e rilancio tutte le migration per aggiornare i dati. Poi bisogna rilanciare il seed
+        }
     }
 }
