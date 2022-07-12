@@ -15,6 +15,7 @@ class CreateTrainsTable extends Migration
     {
         // definisco il nome delle colonne della nuova tabella e il tipo di dato che le andrà a popolare
         // avvio la migration che crea le colonne della mia tabella con comando terminale 'php artisan migrate'
+        // con comando terminale 'php artisan make:migration add_nome_colonna_column_nome_tabella_table --table=nome_tabella' aggiungo una nuova colonna
         Schema::create('trains', function (Blueprint $table) {
             $table->id();
             $table->string('company', 30);
