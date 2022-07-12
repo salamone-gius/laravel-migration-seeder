@@ -15,6 +15,6 @@ class TrainController extends Controller
         // stampo tutti gli elementi
         $trains = Train::all();
 
-        dd($trains);
+        return view('home', compact('trains'));
     }
 }

@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 // richiamo nella rotta il controller e il suo metodo
-Route::get('/', 'TrainController@index');
+Route::get('/', 'TrainController@index')->name('home');
