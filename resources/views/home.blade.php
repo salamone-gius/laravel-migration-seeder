@@ -13,10 +13,10 @@
                     <li style="list-style: none; border: 2px solid goldenrod;margin-bottom: 30px; padding: 10px;">
                         <span>Codice treno: {{$train->train_code}}</span>
                         <p>Partenza da <span>{{$train->departure_station}}</span>
-                             il <span>{{$train->departure_date}}</span>
+                             il <span>{{date('d-m-Y', strtotime($train->departure_date))}}</span>
                              alle ore: <span>{{date('H:m', strtotime($train->departure_date))}}</span></p>
                         <p>Arrivo a <span>{{$train->arrival_station}}</span>
-                             il <span>{{$train->arrival_date}}</span>
+                             il <span>{{date('d-m-Y', strtotime($train->arrival_date))}}</span>
                              alle ore: <span>{{date('H:m', strtotime($train->arrival_time))}}</span> </p>
                     </li>
                 @endforeach
